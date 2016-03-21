@@ -1,24 +1,6 @@
 #! /usr/bin/python
 # *-* coding: utf-8 *-*
 
-"""
-$Id: genetic_algorithm.py 17 2011-03-30 22:55:34Z adriftrock@gmail.com $
-
-COMP40511 - Applied Artificial Intelligence
-
-This file is the result of my own work. Any contributions to the work by
-third parties, other than tutors, are stated clearly below this declaration.
-Should this statement prove to be untrue I recognise the right and duty of
-the Board of Examiners to take appropriate action in line with the university's
-regulations on assessment.
-
-File:    optimum_loading.py
-Date:    28/03/2011
-Name:    Huang Huang (Rock)
-ID:      T2123893
-Version: V1.0
-"""
-
 from Tkinter import *
 from matplotlib import pyplot
 from xlrd.biffh import XLRDError

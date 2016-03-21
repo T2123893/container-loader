@@ -1,25 +1,6 @@
 #! /usr/bin/python
 # *-* coding: utf-8 *-*
 
-"""
-$Id$
-
-COMP40511 - Applied Artificial Intelligence
-
-This file is the result of my own work. Any contributions to the work by
-third parties, other than tutors, are stated clearly below this declaration.
-Should this statement prove to be untrue I recognise the right and duty of
-the Board of Examiners to take appropriate action in line with the university's
-regulations on assessment.
-
-File:    taboo_search.py
-Date:    28/03/2011
-Name:    Huang Huang (Rock)
-ID:      T2123893
-Version: V1.0
-"""
-
-
 import copy
 import random
 from dataset import Dataset
