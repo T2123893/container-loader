@@ -16,14 +16,13 @@ import Pmw
 
 class TabooSearch:
     """
-    This algorithm is based on Taboo Search algorithm. It has changed a little,
-    which uses two taboo list. One is for generating neighbour solution, to
-    tell program which solution is useless. Another one is using to remember
-    actual solution searching.
+    This algorithm is based on Taboo Search algorithm. It uses two taboo lists.
+    One is for generating neighbour solution and telling program which solution
+    is useless. The other one uses for remembering actual solution searching.
     """
     def __init__(self, iterations=100):
         self.crt_sln = Solution()
-        self.tabu = [] # Initialise taboo list
+        self.tabu = [] # Initialising taboo list
         self.tabu_size = self.crt_sln.l
         self.crt_best_sln = copy.deepcopy(self.crt_sln) # set best so far
         self.iter = iterations
@@ -37,7 +36,7 @@ class TabooSearch:
     def solve(self):
         while self.iter >= 0:
             neighbors = [] # collection of neighbor solutions
-            itabu = []  # taboo some position which is already accessed
+            itabu = []  # taboo some positions which were already accessed
             for i in range (self.crt_sln.l):
                 ind = random.randint(0, self.crt_sln.l - 1)
                 change = random.randint(0, 1)
@@ -51,7 +50,7 @@ class TabooSearch:
                 else:
                     itabu.append((ind, change))
             if 0 == len(neighbors):
-                # sometimes better initialise, better solution
+                # sometimes better initialising, better solution
                 print "--neighbors are empty, resart initial solution----------"
                 new_v = [random.randint(0,1) for i in range (self.crt_sln.l)]
                 self.crt_sln.set_v(new_v)
@@ -99,10 +98,9 @@ class SimulatedAnnealing:
 
     def solution_reset(self):
         """
-        This feature is going to improve the simulated annealling search.
-        If long time no change, restart current solution.
-        Since fitness was no change more than 50 times,
-        thus, reset 'crt_sln' In order to improve current solution
+        Improves the simulated annealling search. If long time no change,
+        restart current solution. If fitness was no change more than 50 times,
+        reset and improve current solution.
         """
         if self.no_change > 50:
             print ":::: Reset for improving solution seed"
@@ -110,10 +108,9 @@ class SimulatedAnnealing:
 
     def recover_best(self):
         """
-        This feature is going to improve the simulated annealling search.
-        At the end of program, check and compare the best fitness so far with
-        current fitness. If the current fitness is not the highest one then
-        recover to the best fitness so far.
+        Improves the simulated annealling search. At the end of program, check
+        and compare the best fitness so far with current fitness. If the current
+        fitness is not the highest one then recover to the best fitness so far.
         """
         if self.best_so_far.f > self.crt_sln.f:
             self.crt_sln.set_v(self.best_so_far.v[:])
@@ -121,10 +118,8 @@ class SimulatedAnnealing:
 
     def remember_repeat_times(self, new_fitness):
         """
-        This feature combine with solution reseting operation.
-        Remember repeat times of new solution. Sometimes, the new solution will
-        not be changed for long time. To remember this times, if time more than
-        a threshold then reset solution in order to improve result.
+        Counts repeat times of new solution. If the new solution has no changes
+        more than a threshold then reset solution in order to improve result.
         """
         if new_fitness == self.lastfit:
             self.no_change += 1
@@ -170,8 +165,7 @@ class SimulatedAnnealing:
 ################################################################################
 
 class GeneticAlgorithm:
-    """ This class is to implement a Simple Genetic Algorithm """
-
+    
     def __init__(self, popsize=100, maxgen=50, pcrossover=0.90, pmutation=.01):
         self.popsize = popsize # population size
         self.maxgen = maxgen # maximum iterate generation
@@ -260,9 +254,7 @@ class GeneticAlgorithm:
 ################################################################################
 
 class Solution:
-    """
-    This class represents a solution.
-    """
+
     ga = False # to indicate whether the solution is for GA or not
 
     def __init__(self, l=28):
@@ -413,7 +405,7 @@ class AppWin(Frame):
 
     def checkdataset(self):
         if not Dataset.ds:
-            Dataset.loaddataset("COMP40511_2010_dataset_4.xls")
+            Dataset.loaddataset("template.xls")
 
     class Logger:
         def write(self, s):
